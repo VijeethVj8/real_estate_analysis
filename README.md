@@ -1,85 +1,82 @@
-🏡 U.S. Real Estate Market Analysis
-📌 Overview
+# 🏡 U.S. Real Estate Market Analysis
 
-This project explores U.S. housing market trends using a large Realtor dataset (~2.2M records).
-The analysis provides insights into property prices, house sizes, lot sizes, geographic differences, and time-based market trends.
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)  
+![Libraries](https://img.shields.io/badge/Libraries-Pandas%20|%20Matplotlib%20|%20Seaborn%20|%20NumPy-orange.svg)  
+![Status](https://img.shields.io/badge/Status-Completed-green.svg)
 
-🗂️ Dataset
+---
 
-Source: Realtor housing dataset (realtor-data.csv)
+## 📌 Overview  
+This project analyzes a **large Realtor dataset (~2.2M property listings)** to explore housing market patterns across the United States.  
+The goal is to uncover **price trends, geographic insights, and volatility** using data cleaning, exploratory analysis, and visualization.  
 
-Size: ~2.2M rows × 12 columns
+---
 
-Key fields:
+## 🗂️ Dataset  
+- **File**: `realtor-data.csv`  
+- **Shape**: ~2.2M rows × 12 columns  
+- **Key columns**:
+  - `price` – Listing price of the property  
+  - `bed`, `bath` – Number of bedrooms and bathrooms  
+  - `house_size` – Size of the property (sq ft)  
+  - `acre_lot` – Lot size in acres  
+  - `status` – For Sale, Sold, Ready to Build  
+  - `city`, `state`, `zip_code` – Location info  
+  - `brokered_by` – Brokerage/agent ID  
+  - `prev_sold_date` – Previous sale date  
 
-price, bed, bath, house_size, acre_lot
+---
 
-status (For Sale, Sold, Ready to Build)
+## 🔎 Analysis Workflow  
 
-city, state, zip_code, brokered_by
+### 1. Data Cleaning  
+- Fixed datatypes (zip codes as strings, dates as datetime)  
+- Handled missing values  
+- Removed outliers (e.g., price > $10M, 400+ bedrooms)  
 
-prev_sold_date
+### 2. Exploratory Data Analysis (EDA)  
+- Summary statistics for numeric & categorical fields  
+- Missing value heatmaps and distributions  
 
-🔎 Analysis Workflow
+### 3. Geographic Insights  
+- **State-level medians** (price, beds, baths, size, lot size)  
+- **City-level analysis** with $/sqft comparisons  
+- Identified undervalued and overvalued markets  
 
-Data Cleaning
+### 4. Time-Series Trends  
+- National & state-level **median price trends**  
+- **Monthly rolling medians** for seasonality  
+- **Year-over-Year (YoY) growth rates**  
+- Heatmap of **state × year growth**  
+- Volatility analysis (Top/Bottom states by YoY growth)  
 
-Converted datatypes (e.g., zip → string, dates → datetime)
+### 5. Visualizations  
+- Bar charts: top states/cities by median price  
+- Dual-axis plots: price vs size vs lot size  
+- Line charts: national & state price trends  
+- Heatmap: YoY growth by state  
+- Volatility lines: most boom/bust states vs U.S. baseline  
 
-Handled missing values
+---
 
-Removed outliers (e.g., unrealistic price, size, lot size)
+## ⚙️ Tech Stack  
+- **Programming**: Python 3.8+  
+- **Libraries**: Pandas, NumPy, Matplotlib, Seaborn, Statsmodels  
+- **Notebook**: Jupyter Notebook  
 
-Exploratory Data Analysis (EDA)
+---
 
-Summary stats & missing value report
+## 📊 Key Insights  
+- **California, New York, Hawaii, and D.C.** are consistently the most expensive markets.  
+- **Hawaii** has high prices despite smaller house sizes → premium land market.  
+- **Utah & Colorado** show strong growth with relatively affordable $/sqft.  
+- National housing market shows **boom–bust cycles** with clear volatility by state.  
 
-Distribution of price, size, lot size, beds & baths
+---
 
-Geographic Insights
+## 🚀 How to Run  
 
-State-level medians (price, size, lot size)
-
-Top cities by price and $/sqft value
-
-Comparison of city vs state medians
-
-Time-Series Trends
-
-National & state-level median price trends
-
-Monthly rolling averages & seasonality
-
-Year-over-Year (YoY) % growth
-
-Heatmap of YoY growth by state × year
-
-Volatility analysis (Top/Bottom states by growth)
-
-Visualizations
-
-Bar charts: top states & cities by price
-
-Dual-axis charts: price vs size vs lot size
-
-Line charts: price trends & YoY growth
-
-Heatmap: state-level YoY changes
-
-⚙️ Tools & Libraries
-
-Python: Pandas, NumPy
-
-Visualization: Matplotlib, Seaborn
-
-Modeling/Stats: Statsmodels (for additional exploration)
-
-📊 Key Findings
-
-California & New York consistently rank among the most expensive states.
-
-Hawaii shows high prices despite smaller house sizes.
-
-Some inland states (e.g., Utah, Colorado) provide larger homes at lower $/sqft.
-
-National YoY growth highlights boom & bust cycles, with clear volatility in certain states.
+### 1. Clone the Repository  
+```bash
+git clone https://github.com/yourusername/realtor-analysis.git
+cd realtor-analysis
